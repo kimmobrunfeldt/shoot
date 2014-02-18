@@ -21,6 +21,8 @@
     "url": "https://github.com/kimmobrunfeldt/shoot/issues"
   },
   "dependencies": {
-    "phantomjs": "~1.9.7-1"
+    "phantomjs": "~1.9.7-1",
+    "lodash": "~2.4.1",
+    "q": "~1.0.0"
   }
 }
