@@ -1,0 +1,26 @@
+{
+  "name": "shoot",
+  "version": "0.0.0",
+  "description": "Automate screenshots",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:kimmobrunfeldt/shoot.git"
+  },
+  "keywords": [
+    "screenshot",
+    "documentation",
+    "automation"
+  ],
+  "author": "Kimmo Brunfeldt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kimmobrunfeldt/shoot/issues"
+  },
+  "dependencies": {
+    "phantomjs": "~1.9.7-1"
+  }
+}
