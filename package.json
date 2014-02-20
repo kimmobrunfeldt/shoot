@@ -1,36 +1,37 @@
 {
-    "name": "shoot",
-    "version": "0.1.0",
-    "description": "Automate web site's screenshots",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "bin": {
-        "shoot": "./index.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:kimmobrunfeldt/shoot.git"
-    },
-    "keywords": [
-        "screenshot",
-        "documentation",
-        "automation",
-        "ui",
-        "testing"
-    ],
-    "author": "Kimmo Brunfeldt",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/kimmobrunfeldt/shoot/issues"
-    },
-    "dependencies": {
-        "lodash": "~2.4.1",
-        "q": "~1.0.0",
-        "url": "~0.7.9",
-        "underscore.string": "~2.3.3",
-        "pageres": "git+https://github.com/kimmobrunfeldt/pageres.git#v0.3.0",
-        "tarantula": "~0.1.0"
-    }
+  "name": "shoot",
+  "version": "0.1.0",
+  "description": "Automate web site's screenshots",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "shoot": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:kimmobrunfeldt/shoot.git"
+  },
+  "keywords": [
+    "screenshot",
+    "documentation",
+    "automation",
+    "ui",
+    "testing"
+  ],
+  "author": "Kimmo Brunfeldt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kimmobrunfeldt/shoot/issues"
+  },
+  "dependencies": {
+    "lodash": "~2.4.1",
+    "q": "~1.0.0",
+    "url": "~0.7.9",
+    "underscore.string": "~2.3.3",
+    "pageres": "git+https://github.com/kimmobrunfeldt/pageres.git#v0.3.0",
+    "tarantula": "~0.1.0",
+    "colors": "~0.6.2"
+  }
 }
