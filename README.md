@@ -11,14 +11,9 @@ These screenshots can be compared between releases. You can view differences in 
 
         shoot http://mypage.com
 
-2. Commit screenshots to a separate orphan branch
+2. Commit screenshots to a separate `test/shoot` branch.
 
-        git checkout --orphan test/shoot
-        git add shoot -A
-        gc -m "New UI"
-        git push
-
-3. Compare your UI changes using GitHub's image diffing
+3. Push the branch and compare the UI changes with GitHub's image diffing
 
 ## Install
 
