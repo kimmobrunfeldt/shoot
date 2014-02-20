@@ -4,7 +4,6 @@ var Q = require('q');
 var _ = require('lodash');
 var _s = require('underscore.string');
 var url = require('url');
-var request = require('request');
 var pageres = require('pageres');
 var path = require('path');
 var Tarantula = require('tarantula');
