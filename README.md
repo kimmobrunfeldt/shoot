@@ -1,9 +1,9 @@
 # Shoot
 
-**UI acceptanse for web applications made simple as hell.**
+**UI acceptance testing for web applications without coding a single line of code! **
 
 Shoot crawls through a given url, takes screenshots of each page and saves them as files.
-These screenshots can be compared between releases.
+These screenshots can be compared between releases. You can view differences in images using GitHub.
 
 ## Usage
 
@@ -11,12 +11,12 @@ These screenshots can be compared between releases.
 
     shoot http://mypage.com
 
-2. Commit screenshots and push
+2. Commit screenshots to a separate orphan branch
 
-    git checkout test/shoot
-    git add shoot -A
-    gc -m "New UI"
-    git push
+        git checkout --orphan test/shoot
+        git add shoot -A
+        gc -m "New UI"
+        git push
 
 3. Compare your UI changes using GitHub's image diffing
 
