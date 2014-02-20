@@ -23,6 +23,11 @@
   "dependencies": {
     "phantomjs": "~1.9.7-1",
     "lodash": "~2.4.1",
-    "q": "~1.0.0"
+    "q": "~1.0.0",
+    "cheerio": "~0.13.1",
+    "url": "~0.7.9",
+    "request": "~2.34.0",
+    "underscore.string": "~2.3.3",
+    "crawler": "~0.2.5"
   }
 }
