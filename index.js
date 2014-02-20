@@ -5,6 +5,8 @@ var _s = require('underscore.string');
 var url = require('url');
 var request = require('request');
 var cheerio = require('cheerio');
+var pageres = require('pageres');
+var path = require('path');
 
 var sysargs = process.argv.slice(2);
 
@@ -29,8 +31,9 @@ var Spider = (function() {
         return urls;
     }
 
-    function processUrl(pageUrl, depth) {
+    function processUrl(pageUrl, depth, cb) {
         visited.push(fixUrlCase(pageUrl));
+        cb(pageUrl);
         console.log(pageUrl, depth, isVisited(pageUrl));
 
         if (depth > MAX_DEPTH) {
@@ -39,7 +42,7 @@ var Spider = (function() {
 
         request(pageUrl, function(error, response, body) {
             console.log('request', pageUrl);
-            if (!error && response.statusCode == 200) {
+            if (!error && _s.include(response.headers['content-type'], 'text/html') && response.statusCode == 200) {
                 var urls = findUrls(body);
 
                 var visitNext = _.filter(urls, function(u) {
@@ -48,7 +51,7 @@ var Spider = (function() {
                 });
 
                 _.each(visitNext, function(u) {
-                    processUrl(formatUrl(pageUrl, u), depth + 1);
+                    processUrl(formatUrl(pageUrl, u), depth + 1, cb);
                 });
             }
         });
@@ -81,9 +84,9 @@ var Spider = (function() {
     }
 
     return {
-        crawl: function(pageUrl) {
+        crawl: function(pageUrl, cb) {
             initialUrl = pageUrl;
-            processUrl(pageUrl, 0);
+            processUrl(pageUrl, 0, cb);
         }
     };
 })();
@@ -97,7 +100,20 @@ function main() {
     }
 
     var baseUrl = sysargs[0];
-    Spider.crawl(baseUrl);
+
+    Spider.crawl(baseUrl, function(crawlUrl) {
+        var dirPath = path.join('shoot', url.parse(crawlUrl).pathname);
+        var filePath = path.join(dirPath, 'index');
+
+        pageres([{
+            url: crawlUrl,
+            filePath: filePath
+        }], ['1366x768'], function() {
+            console.log('Saved ', crawlUrl);
+        });
+    });
+
+
 }
 
 main();
