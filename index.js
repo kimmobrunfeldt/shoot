@@ -7,6 +7,7 @@ var url = require('url');
 var pageres = require('pageres');
 var path = require('path');
 var Tarantula = require('tarantula');
+var colors = require('colors');
 
 
 var sysargs = process.argv.slice(2);
@@ -31,7 +32,6 @@ function main() {
     var baseUrl = sysargs[0];
     var resolution = sysargs[1] || '1366x768';
 
-
     var brain = {
         legs: 8,
         shouldVisit: function(uri) {
@@ -43,7 +43,8 @@ function main() {
 
     tarantula.on('data', function(uri) {
         var crawlUrl = uri.uri;
-        console.log('Processing', crawlUrl, '..');
+        var msg = 'Processing ' + crawlUrl + ' ..';
+        console.log(msg.bold);
 
         var resolutionPath = path.join('shoot', resolution);
         var dirPath = path.join(resolutionPath, url.parse(crawlUrl).pathname);
@@ -53,19 +54,25 @@ function main() {
             url: crawlUrl,
             filePath: filePath
         }], [resolution], function() {
-            console.log('Saved', crawlUrl, '->', filePath);
+            var msg = 'Saved ' + crawlUrl + ' -> ' + filePath;
+            console.log(msg.bold);
         });
     });
 
     tarantula.on('done', function() {
-        console.log('Crawling done.');
+        console.log('Crawling done.'.bold);
     });
 
-    tarantula.on('error', function(uri) {
+    tarantula.on('error', function(uri, e, error) {
+
         var errorUrl = uri.uri;
-        console.log('Skipped', errorUrl);
+        var msg = 'Error processing ' + errorUrl;
+        console.log(msg.red.bold);
+        console.log(error);
     });
 
+    var msg = 'Start crawling from ' + baseUrl;
+    console.log(msg.bold);
     tarantula.start([baseUrl]);
 }
 
