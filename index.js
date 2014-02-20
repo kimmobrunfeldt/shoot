@@ -8,6 +8,7 @@ var pageres = require('pageres');
 var path = require('path');
 var Tarantula = require('tarantula');
 var colors = require('colors');
+var rmdir = require('rimraf');
 
 
 var sysargs = process.argv.slice(2);
@@ -68,6 +69,14 @@ function main() {
         var errorUrl = uri.uri;
         var msg = 'Error processing ' + errorUrl;
         console.log(msg.red.bold);
+        console.log(error);
+    });
+
+    console.log('Removing old shoot directory..'.bold);
+    rmdir('shoot', function(error) {
+        if (!error) return;
+
+        console.log('Error deleting shoot directory'.red.bold);
         console.log(error);
     });
 
