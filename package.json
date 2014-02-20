@@ -7,9 +7,8 @@
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "bin": {
-        "shoot": "index.js"
+        "shoot": "./index.js"
     },
-
     "repository": {
         "type": "git",
         "url": "git@github.com:kimmobrunfeldt/shoot.git"
@@ -31,7 +30,7 @@
         "q": "~1.0.0",
         "url": "~0.7.9",
         "underscore.string": "~2.3.3",
-        "pageres": "https://github.com/kimmobrunfeldt/pageres.git#v0.3.0",
+        "pageres": "git+https://github.com/kimmobrunfeldt/pageres.git#v0.3.0",
         "tarantula": "~0.1.0"
     }
 }
