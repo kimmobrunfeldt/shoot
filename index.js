@@ -46,7 +46,7 @@ function main() {
         var crawlUrl = uri.uri;
         console.log('Processing', crawlUrl, '..');
 
-        var resolutionPath = path.join('shoot', resolution)
+        var resolutionPath = path.join('shoot', resolution);
         var dirPath = path.join(resolutionPath, url.parse(crawlUrl).pathname);
         var filePath = path.join(dirPath, 'index');
 
