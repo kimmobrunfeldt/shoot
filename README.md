@@ -24,4 +24,4 @@ These screenshots can be compared between releases.
 
 Using npm
 
-    npm install shoot
+    npm install -g shoot
