@@ -1,6 +1,6 @@
 # Shoot
 
-**UI acceptance testing for web applications without coding a single line of code! **
+**UI acceptance testing for web applications without coding a single line of code!**
 
 Shoot crawls through a given url, takes screenshots of each page and saves them as files.
 These screenshots can be compared between releases. You can view differences in images using GitHub.
@@ -9,7 +9,7 @@ These screenshots can be compared between releases. You can view differences in 
 
 1. Run shoot
 
-    shoot http://mypage.com
+        shoot http://mypage.com
 
 2. Commit screenshots to a separate orphan branch
 
