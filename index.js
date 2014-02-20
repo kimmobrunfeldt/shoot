@@ -14,6 +14,16 @@ var rmdir = require('rimraf');
 var sysargs = process.argv.slice(2);
 
 
+function formatUrl(baseUrl, link) {
+    if (!_s.startsWith(link, 'http')) {
+        if (!_s.endsWith(baseUrl, '/')) baseUrl += '/';
+        if (_s.startsWith(link, '/')) link = link.slice(1);
+        return baseUrl + link;
+    }
+
+    return link;
+}
+
 function urlsInSameHost(url1, url2) {
     var host1 = url.parse(url1).host;
     var host2 = url.parse(url2).host;
@@ -36,36 +46,44 @@ function main() {
     var brain = {
         legs: 8,
         shouldVisit: function(uri) {
-            return urlsInSameHost(baseUrl, uri.uri);
+            return urlsInSameHost(baseUrl, formatUrl(baseUrl, uri));
         }
     };
 
     var tarantula = new Tarantula(brain);
+    var urls = [];
 
     tarantula.on('data', function(uri) {
         var crawlUrl = uri.uri;
-        var msg = 'Processing ' + crawlUrl + ' ..';
+        var msg = crawlUrl + ' ..';
         console.log(msg.bold);
 
-        var resolutionPath = path.join('shoot', resolution);
-        var dirPath = path.join(resolutionPath, url.parse(crawlUrl).pathname);
-        var filePath = path.join(dirPath, 'index');
-
-        pageres([{
-            url: crawlUrl,
-            filePath: filePath
-        }], [resolution], function() {
-            var msg = 'Saved ' + crawlUrl + ' -> ' + filePath;
-            console.log(msg.bold);
-        });
+        urls.push(crawlUrl);
     });
 
     tarantula.on('done', function() {
         console.log('Crawling done.'.bold);
+
+        var shots = [];
+
+        _.each(urls, function(u) {
+            var resolutionPath = path.join('shoot', resolution);
+            var dirPath = path.join(resolutionPath, url.parse(u).pathname);
+            var filePath = path.join(dirPath, 'index');
+            shots.push({
+                url: u,
+                filePath: filePath
+            });
+        });
+
+        pageres(shots, [resolution], function() {
+            //var msg = 'Saved ' + crawlUrl + ' -> ' + filePath;
+            console.log('All images saved'.bold);
+        });
+
     });
 
     tarantula.on('error', function(uri, e, error) {
-
         var errorUrl = uri.uri;
         var msg = 'Error processing ' + errorUrl;
         console.log(msg.red.bold);
