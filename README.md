@@ -14,13 +14,14 @@ Push shoot history to GitHub to see nice image diff view
 
 ## Usage
 
-Easiest way to run shoot is to use the default *crawl* mode. Shoot will take
+Easiest way to run shoot is to use the default *crawl* mode.
 
     shoot http://mypage.com
 
+You can also specify a list of urls to shoot.
 
 
-3. Push the branch and compare the UI changes with GitHub's image diffing
+To see differences visually, you can for example push shoot's git repository to GitHub.
 
 ## Install
 
