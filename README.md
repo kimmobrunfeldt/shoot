@@ -1,17 +1,24 @@
-# Shoot
+# Shoot - UI review for web applications
 
-**UI acceptance testing for web applications without coding a single line of code!**
+Shoot crawls through a given site, takes screenshots of each page and saves them as files.
+These screenshots can be compared between releases.
 
-Shoot crawls through a given url, takes screenshots of each page and saves them as files.
-These screenshots can be compared between releases. You can view differences in images using GitHub.
+*You will know exactly the visual changes you make*
+
+
+## Example
+
+Push shoot history to GitHub to see nice image diff view
+
+![Difference view](docs/diff-view.png)
 
 ## Usage
 
-1. Run shoot
+Easiest way to run shoot is to use the default *crawl* mode. Shoot will take
 
-        shoot http://mypage.com
+    shoot http://mypage.com
 
-2. Commit screenshots to a separate `test/shoot` branch.
+
 
 3. Push the branch and compare the UI changes with GitHub's image diffing
 
