@@ -14,16 +14,32 @@ Push shoot history to GitHub to see nice image diff view
 
 ![Difference view](docs/diff-view.png)
 
+
 ## Usage
 
-Easiest way to run shoot is to use the default *crawl* mode.
+* Shoot a single url
 
-    shoot http://mypage.com
+        shoot http://google.com
 
-You can also specify a list of urls to shoot.
+* Shoot a set of urls
+
+        shoot | urls.txt
+
+    Where *urls.txt* has url on each line.
+
+* Shoot with *crawl* mode
+
+        shoot --crawl http://mypage.com
+
+    This will take initial link(s) and start crawling the whole site by following links inside pages.
+    Default crawler will stay on the site bounds.
+
+To see differences visually, you can for example push shoot's directory to GitHub.
 
 
-To see differences visually, you can for example push shoot's git repository to GitHub.
+## How does it work
+
+Shoot saves screenshots inside `.shoot` directory in the current working directory.
 
 ## Install
 
