@@ -1,6 +1,6 @@
 # Shoot - UI review for web applications
 
-**This is a work in progress. This thing does not work yet*
+**This is a work in progress. This thing does not work yet and is not installable**
 
 Shoot crawls through a given site, takes screenshots of each page and saves them as files.
 These screenshots can be compared between releases.
