@@ -9,19 +9,22 @@ var Tarantula = require('tarantula');
 var _url = require('url');
 var _s = require('underscore.string');
 
-function LinkCrawler() {}
-LinkCrawler.prototype = Object.create(require('events').EventEmitter.prototype);
 
-LinkCrawler.prototype.start = function start(urls) {
-    var self = this;
-
-    var baseUrls = urls;
+// Crawls static pages using Cheerio
+function StaticCrawler(opts) {
+    opts = opts || {};
 
     this.brain = {
         legs: 8,
         // Dont visit external sites
-        stayInRange: true
+        stayInRange: opts.stayInRange || true
     };
+}
+StaticCrawler.prototype = Object.create(require('events').EventEmitter.prototype);
+
+StaticCrawler.prototype.start = function start(urls) {
+    var self = this;
+    var baseUrls = urls;
 
     this.tarantula = new Tarantula(this.brain);
 
@@ -45,5 +48,5 @@ LinkCrawler.prototype.start = function start(urls) {
 };
 
 module.exports = {
-    LinkCrawler: LinkCrawler
+    StaticCrawler: StaticCrawler
 };
