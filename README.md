@@ -1,5 +1,7 @@
 # Shoot - UI review for web applications
 
+[![Build Status](https://travis-ci.org/kimmobrunfeldt/shoot.png?branch=master)](https://travis-ci.org/kimmobrunfeldt/shoot)
+
 **This is a work in progress. This thing does not work yet and is not installable**
 
 Shoot crawls through a given site, takes screenshots of each page and saves them as files.
