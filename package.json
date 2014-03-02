@@ -4,7 +4,7 @@
   "description": "Automate web site's screenshots",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -r list"
+    "test": "mocha"
   },
   "bin": {
     "shoot": "./index.js"
