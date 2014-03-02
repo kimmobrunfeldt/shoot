@@ -7,7 +7,7 @@
     "test": "mocha"
   },
   "bin": {
-    "shoot": "./index.js"
+    "shoot": "./shoot-cli.js"
   },
   "repository": {
     "type": "git",
