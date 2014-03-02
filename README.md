@@ -23,7 +23,7 @@ Push shoot history to GitHub to see nice image diff view
 
 * Shoot a set of urls
 
-        shoot | urls.txt
+        shoot --urls urls.txt
 
     Where *urls.txt* has url on each line.
 
