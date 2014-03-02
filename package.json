@@ -34,6 +34,9 @@
     "rimraf": "~2.2.6",
     "cli-color": "~0.2.3",
     "commander": "~2.1.0",
-    "read": "~1.0.5"
+    "read": "~1.0.5",
+    "mkdirp": "~0.3.5",
+    "glob": "~3.2.9",
+    "url-to-screenshot": "~0.4.1"
   }
 }

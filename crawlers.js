@@ -5,8 +5,9 @@
 // - Emit 'error' from error
 // - Emit 'done' when completed
 
-var Tarantula = require('tarantula');
+var util = require('util');
 var _url = require('url');
+var Tarantula = require('tarantula');
 var _s = require('underscore.string');
 
 
@@ -20,7 +21,7 @@ function StaticCrawler(opts) {
         stayInRange: opts.stayInRange || true
     };
 }
-StaticCrawler.prototype = Object.create(require('events').EventEmitter.prototype);
+util.inherits(StaticCrawler, require('events').EventEmitter);
 
 StaticCrawler.prototype.start = function start(urls) {
     var self = this;
@@ -33,7 +34,9 @@ StaticCrawler.prototype.start = function start(urls) {
     this.tarantula.on('data', function onData(uri) {
         var crawlUrl = uri.uri;
         foundUrls.push(crawlUrl);
-        self.emit('page', {url: crawlUrl});
+        self.emit('page', {
+            url: crawlUrl
+        });
     });
 
     this.tarantula.on('done', function onDone() {
@@ -41,7 +44,10 @@ StaticCrawler.prototype.start = function start(urls) {
     });
 
     this.tarantula.on('error', function onError(uri, e, error) {
-        self.emit('error', {url: uri.uri, error: error});
+        self.emit('error', {
+            url: uri.uri,
+            error: error
+        });
     });
 
     this.tarantula.start(urls);
