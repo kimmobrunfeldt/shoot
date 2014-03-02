@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/kimmobrunfeldt/shoot.png?branch=master)](https://travis-ci.org/kimmobrunfeldt/shoot)
 
-**This is a work in progress. This thing does not work yet and is not installable**
+**This is work in progess!**
 
 Shoot crawls through a given site, takes screenshots of each page and saves them as files.
 These screenshots can be compared between releases.
@@ -47,4 +47,4 @@ Shoot saves screenshots inside `.shoot` directory in the current working directo
 
 Using npm
 
-    npm install -g shoot
+    npm install -g git+https://github.com/kimmobrunfeldt/shoot.git
