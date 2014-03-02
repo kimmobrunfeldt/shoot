@@ -4,7 +4,7 @@
   "description": "Automate web site's screenshots",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -r list"
   },
   "bin": {
     "shoot": "./index.js"
@@ -38,5 +38,8 @@
     "glob": "~3.2.9",
     "url-to-screenshot": "~0.4.1",
     "q": "~1.0.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.17.1"
   }
 }
