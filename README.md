@@ -1,8 +1,10 @@
+**This project stalled, but the same idea was implemented 7 years after: https://github.com/kimmobrunfeldt/squint!**
+
 # Shoot - UI review for web applications
 
 [![Build Status](https://travis-ci.org/kimmobrunfeldt/shoot.png?branch=master)](https://travis-ci.org/kimmobrunfeldt/shoot)
 
-**This is work in progess!**
+
 
 Shoot crawls through a given site, takes screenshots of each page and saves them as files.
 These screenshots can be compared between releases.
